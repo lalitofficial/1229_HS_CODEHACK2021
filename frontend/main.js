@@ -15,19 +15,19 @@ firebase.auth();
 rtdb = firebase.database();
 
 authEndpoints = [
-    "frontend/login/",
-    "frontend/signup/"
+    "/login/",
+    "/signup/"
 ];
 
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
         window.user = user;
         if(getPres(document.location.pathname, authEndpoints)) {
-            document.location.replace("frontend/")
+            document.location.replace("/")
         }
     } else {
         if(getPres(document.location.pathname, authEndpoints) === false) {
-            document.location.replace("frontend/signup/")
+            document.location.replace("/signup/")
         }
     }
 });
